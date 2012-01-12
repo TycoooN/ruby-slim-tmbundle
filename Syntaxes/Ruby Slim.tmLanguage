@@ -5,217 +5,54 @@
 	<key>fileTypes</key>
 	<array>
 		<string>slim</string>
-		<string>sass</string>
 	</array>
-	<key>foldingStartMarker</key>
-	<string>^\s*([-%#\:\.\w\=].*)\s$</string>
-	<key>foldingStopMarker</key>
-	<string>^\s*$</string>
-	<key>keyEquivalent</key>
-	<string>^~S</string>
 	<key>name</key>
-	<string>Ruby Slim</string>
+	<string>Slim</string>
 	<key>patterns</key>
 	<array>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.prolog.slim</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>^(! )($|\s.*)</string>
-			<key>name</key>
-			<string>meta.prolog.slim</string>
+			<key>include</key>
+			<string>#slim-comment</string>
 		</dict>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.section.comment.slim</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>^ *(/)\s*\S.*$\n?</string>
-			<key>name</key>
-			<string>comment.line.slash.slim</string>
+			<key>include</key>
+			<string>#ruby-logic</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>^( *)(/)\s*$</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.section.comment.slim</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>^(?!\1  )</string>
-			<key>name</key>
-			<string>comment.block.slim</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>text.slim</string>
-				</dict>
-			</array>
+			<key>include</key>
+			<string>#ruby-content</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>^\s*([.#]?[\w.#_-]+)</string>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.tag.slim</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>$</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#tag-stuff</string>
-				</dict>
-			</array>
+			<key>include</key>
+			<string>#ruby-embedded</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>^\s*([\w.#_-]*[\w]+)</string>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.tag.slim</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>$|(?!\.|#|\{|\[|=|-|~|/)</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>begin</key>
-					<string>\{(?=.*\}|.*\|\s*$)</string>
-					<key>end</key>
-					<string>\}|$|^(?!.*\|\s*$)</string>
-					<key>name</key>
-					<string>meta.section.attributes.slim</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>source.ruby.rails</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#continuation</string>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>\[(?=.*\]|.*\|\s*$)</string>
-					<key>end</key>
-					<string>\]|$|^(?!.*\|\s*$)</string>
-					<key>name</key>
-					<string>meta.section.object.slim</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>source.ruby.rails</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#continuation</string>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#rubyline</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>/</string>
-					<key>name</key>
-					<string>punctuation.terminator.tag.slim</string>
-				</dict>
-			</array>
+			<key>include</key>
+			<string>#tag-unenclosed</string>
 		</dict>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>meta.escape.slim</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>^\s*(\\.)</string>
+			<key>include</key>
+			<string>#tag-enclosed-1</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>^\s*(?==='?|='?|-|~)</string>
-			<key>end</key>
-			<string>$</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#rubyline</string>
-				</dict>
-			</array>
+			<key>include</key>
+			<string>#tag-enclosed-2</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>^\s*(?=\||')</string>
-			<key>end</key>
-			<string>$</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>text.html.basic</string>
-				</dict>
-			</array>
+			<key>include</key>
+			<string>#tag-enclosed-3</string>
 		</dict>
 	</array>
 	<key>repository</key>
 	<dict>
-		<key>continuation</key>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.separator.continuation.slim</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>(\|)\s*\n</string>
-		</dict>
-		<key>delimited-ruby-a</key>
+		<key>ruby-content</key>
 		<dict>
 			<key>begin</key>
-			<string>=\(</string>
+			<string>==?'? </string>
 			<key>end</key>
-			<string>\)(?=( \w|$))</string>
+			<string>$</string>
 			<key>name</key>
-			<string>source.ruby.embedded.slim</string>
+			<string>source.ruby.embedded</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -224,350 +61,255 @@
 				</dict>
 			</array>
 		</dict>
-		<key>delimited-ruby-b</key>
-		<dict>
-			<key>begin</key>
-			<string>=\[</string>
-			<key>end</key>
-			<string>\](?=( \w|$))</string>
-			<key>name</key>
-			<string>source.ruby.embedded.slim</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>source.ruby.rails</string>
-				</dict>
-			</array>
-		</dict>
-		<key>delimited-ruby-c</key>
-		<dict>
-			<key>begin</key>
-			<string>=\{</string>
-			<key>end</key>
-			<string>\}(?=( \w|$))</string>
-			<key>name</key>
-			<string>source.ruby.embedded.slim</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>source.ruby.rails</string>
-				</dict>
-			</array>
-		</dict>
-		<key>embedded-ruby</key>
+		<key>ruby-embedded</key>
 		<dict>
 			<key>begin</key>
 			<string>#{</string>
 			<key>end</key>
 			<string>}</string>
 			<key>name</key>
-			<string>source.ruby.embedded.html</string>
+			<string>source.ruby.embedded</string>
 			<key>patterns</key>
 			<array>
-				<dict>
-					<key>include</key>
-					<string>source.ruby.rail</string>
-				</dict>
-			</array>
-		</dict>
-		<key>entities</key>
-		<dict>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>captures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.entity.html</string>
-						</dict>
-						<key>3</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.entity.html</string>
-						</dict>
-					</dict>
-					<key>match</key>
-					<string>(&amp;)([a-zA-Z0-9]+|#[0-9]+|#x[0-9a-fA-F]+)(;)</string>
-					<key>name</key>
-					<string>constant.character.entity.html</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>&amp;</string>
-					<key>name</key>
-					<string>invalid.illegal.bad-ampersand.html</string>
-				</dict>
-			</array>
-		</dict>
-		<key>interpolated-ruby</key>
-		<dict>
-			<key>begin</key>
-			<string>=(?=\b)</string>
-			<key>end</key>
-			<string>\s|\w$</string>
-			<key>name</key>
-			<string>source.ruby.embedded.html</string>
-		</dict>
-		<key>rubyline</key>
-		<dict>
-			<key>begin</key>
-			<string>=='?|='?|-|~</string>
-			<key>contentName</key>
-			<string>source.ruby.embedded.slim</string>
-			<key>end</key>
-			<string>((do|\{)( \|[^|]+\|)?)$|$|^(?!.*\|\s*$)</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>source.ruby.embedded.html</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.control.ruby.start-block</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>meta.line.ruby.slim</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>comment</key>
-					<string>Hack to let ruby comments work in this context properly</string>
-					<key>match</key>
-					<string>#.*$</string>
-					<key>name</key>
-					<string>comment.line.number-sign.ruby</string>
-				</dict>
 				<dict>
 					<key>include</key>
 					<string>source.ruby.rails</string>
 				</dict>
-				<dict>
-					<key>include</key>
-					<string>#continuation</string>
-				</dict>
 			</array>
 		</dict>
-		<key>string-double-quoted</key>
+		<key>ruby-logic</key>
 		<dict>
 			<key>begin</key>
-			<string>"</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.html</string>
-				</dict>
-			</dict>
+			<string>^\s*-</string>
 			<key>end</key>
-			<string>"</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.html</string>
-				</dict>
-			</dict>
+			<string>$</string>
 			<key>name</key>
-			<string>string.quoted.double.html</string>
+			<string>source.ruby.embedded</string>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#embedded-ruby</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#entities</string>
+					<string>source.ruby.rails</string>
 				</dict>
 			</array>
 		</dict>
-		<key>string-single-quoted</key>
-		<dict>
-			<key>begin</key>
-			<string>'</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.html</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>'</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.html</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.single.html</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#embedded-ruby</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#entities</string>
-				</dict>
-			</array>
-		</dict>
-		<key>tag-generic-attribute</key>
+		<key>slim-comment</key>
 		<dict>
 			<key>match</key>
-			<string>[\w.#:-]+=</string>
+			<string>\s*/.*$</string>
 			<key>name</key>
-			<string>entity.other.attribute-name.html</string>
+			<string>comment.line.slash.slim</string>
 		</dict>
-		<key>tag-id-attribute</key>
+		<key>tag-enclosed-1</key>
 		<dict>
 			<key>begin</key>
-			<string>\b(id)\b\s*(=)</string>
-			<key>captures</key>
+			<string>(?:^\s*|:\s*)([A-Za-z.#][A-Za-z0-9_.#-]*+)\[</string>
+			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>entity.other.attribute-name.id.html</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.separator.key-value.html</string>
+					<string>keyword.tag.slim</string>
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>(?&lt;='|")</string>
+			<string>\]</string>
 			<key>name</key>
-			<string>meta.attribute-with-value.id.html</string>
+			<string>text.slim.tag</string>
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>begin</key>
-					<string>"</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.string.begin.html</string>
-						</dict>
-					</dict>
-					<key>contentName</key>
-					<string>meta.toc-list.id.html</string>
-					<key>end</key>
-					<string>"</string>
-					<key>endCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.string.end.html</string>
-						</dict>
-					</dict>
-					<key>name</key>
-					<string>string.quoted.double.html</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#embedded-ruby</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#entities</string>
-						</dict>
-					</array>
+					<key>include</key>
+					<string>#ruby-content</string>
 				</dict>
 				<dict>
-					<key>begin</key>
-					<string>'</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.string.begin.html</string>
-						</dict>
-					</dict>
-					<key>contentName</key>
-					<string>meta.toc-list.id.html</string>
-					<key>end</key>
-					<string>'</string>
-					<key>endCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.string.end.html</string>
-						</dict>
-					</dict>
-					<key>name</key>
-					<string>string.quoted.single.html</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#embedded-ruby</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#entities</string>
-						</dict>
-					</array>
+					<key>include</key>
+					<string>#tag-params</string>
 				</dict>
 			</array>
 		</dict>
-		<key>tag-stuff</key>
+		<key>tag-enclosed-2</key>
+		<dict>
+			<key>begin</key>
+			<string>(?:^\s*|:\s*)([A-Za-z.#][A-Za-z0-9_.#-]*+)\{</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.tag.slim</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>\}</string>
+			<key>name</key>
+			<string>text.slim.tag</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#ruby-content</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#tag-params</string>
+				</dict>
+			</array>
+		</dict>
+		<key>tag-enclosed-3</key>
+		<dict>
+			<key>begin</key>
+			<string>^\s*([A-Za-z.#][A-Za-z0-9_.#-]*+)\(</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.tag.slim</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>\)</string>
+			<key>name</key>
+			<string>text.slim.tag</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#ruby-content</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#tag-params</string>
+				</dict>
+			</array>
+		</dict>
+		<key>tag-param-name</key>
+		<dict>
+			<key>match</key>
+			<string>[A-Za-z-]+(?==)</string>
+			<key>name</key>
+			<string>entity.name.param.slim</string>
+		</dict>
+		<key>tag-param-value-enclosed-1</key>
+		<dict>
+			<key>begin</key>
+			<string>=\[</string>
+			<key>end</key>
+			<string>\]</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.ruby.rails</string>
+				</dict>
+			</array>
+		</dict>
+		<key>tag-param-value-enclosed-2</key>
+		<dict>
+			<key>begin</key>
+			<string>=\{</string>
+			<key>end</key>
+			<string>\}</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.ruby.rails</string>
+				</dict>
+			</array>
+		</dict>
+		<key>tag-param-value-enclosed-3</key>
+		<dict>
+			<key>begin</key>
+			<string>=\(</string>
+			<key>end</key>
+			<string>\)</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.ruby.rails</string>
+				</dict>
+			</array>
+		</dict>
+		<key>tag-param-value-unenclosed</key>
+		<dict>
+			<key>begin</key>
+			<string>=(?=[^ \[\{\(])</string>
+			<key>end</key>
+			<string>\s|(?=[}\]\)]|:\s)</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.ruby.rails</string>
+				</dict>
+			</array>
+		</dict>
+		<key>tag-params</key>
 		<dict>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#tag-id-attribute</string>
+					<string>#tag-param-name</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#tag-generic-attribute</string>
+					<string>#tag-param-value-unenclosed</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#string-double-quoted</string>
+					<string>#tag-param-value-enclosed-1</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#string-single-quoted</string>
+					<string>#tag-param-value-enclosed-2</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#interpolated-ruby</string>
+					<string>#tag-param-value-enclosed-3</string>
+				</dict>
+			</array>
+		</dict>
+		<key>tag-unenclosed</key>
+		<dict>
+			<key>begin</key>
+			<string>(?:^\s*|:\s*)([A-Za-z.#][A-Za-z0-9_.#-]*+)(?![\[\{\(])</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.tag.slim</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>$</string>
+			<key>name</key>
+			<string>text.slim.tag</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#ruby-content</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#delimited-ruby-a</string>
+					<string>#tag-params</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#delimited-ruby-b</string>
+					<string>#inline-tags</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#delimited-ruby-c</string>
+					<string>#ruby-embedded</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#tag-unenclosed</string>
 				</dict>
 			</array>
 		</dict>
@@ -575,6 +317,6 @@
 	<key>scopeName</key>
 	<string>text.slim</string>
 	<key>uuid</key>
-	<string>36302CC1-1E76-4910-B7B6-F1915EBBA0D3</string>
+	<string>35d59c9e-b2cf-4db3-95ac-807f5b067ecb</string>
 </dict>
 </plist>
