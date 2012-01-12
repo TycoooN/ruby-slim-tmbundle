@@ -10,13 +10,13 @@ This bundle is still in very early stage of development and is not fully tested,
 
 ## Scnreenshots
 
-[Before]("http://dl.dropbox.com/u/8231702/Screenshots/qhc8gy6j%7E2i%7E.png")
-[After]("http://dl.dropbox.com/u/8231702/Screenshots/a5_r-_6_4jom.png")
+- [Before](http://dl.dropbox.com/u/8231702/Screenshots/qhc8gy6j%7E2i%7E.png)
+- [After](http://dl.dropbox.com/u/8231702/Screenshots/a5_r-_6_4jom.png)
 
 ## Installation
 
     cd ~/Library/Application\ Support/TextMate/Bundles/
-    git clone git://github.com/tycooon/slim-tmbundle.git Slim.tmbundle
+    git clone git://github.com/TycoooN/ruby-slim-tmbundle.git Slim.tmbundle
     osascript -e 'tell app "TextMate" to reload bundles'
 
 ## Development process
