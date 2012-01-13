@@ -64,7 +64,7 @@
 		<key>ruby-embedded</key>
 		<dict>
 			<key>begin</key>
-			<string>#{</string>
+			<string>(?&lt;!\\)#{</string>
 			<key>end</key>
 			<string>}</string>
 			<key>name</key>

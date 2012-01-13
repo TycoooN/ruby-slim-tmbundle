@@ -23,7 +23,7 @@ This bundle is still in very early stage of development and is not fully tested,
 
 I switched from TextMate to [Sublime Text 2](http://www.sublimetext.com/2) lately so I am using [AAAPackageDev](https://github.com/SublimeText/AAAPackageDev) which allows to edit tmLanguage as JSON file. This really helped me a lot since editing Property List format file is a huge pain. Sublime Text 2 provides split view and custom build systems, so I can just press one button and instantly see all the changes I've made taking place in a sample slim file that I have open in a split view. I've actually left the JSON-tmLanguage file in the sources so you are free to compare how much more readable it is.
 
-If you have any questions or suggestions, feel free to post an issue or message me directly.
+If you have any questions or suggestions, you are welcome to post an issue or message me directly.
 
 ## Author
 

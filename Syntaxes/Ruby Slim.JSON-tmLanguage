@@ -21,7 +21,7 @@
     },
     "ruby-embedded": {
       "name": "source.ruby.embedded",
-      "begin": "#{",
+      "begin": "(?<!\\\\)#{",
       "end": "}",
       "patterns": [ { "include": "source.ruby.rails" } ]
     },
