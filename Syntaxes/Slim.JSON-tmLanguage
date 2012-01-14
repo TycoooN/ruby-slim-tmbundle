@@ -1,6 +1,6 @@
 {
-  "scopeName": "text.slim",
   "name": "Slim",
+  "scopeName": "text.slim",
   "fileTypes": ["slim"],
   "repository": {
     "slim-line-comment": {
@@ -10,14 +10,14 @@
     "slim-block-comment": {
       "name": "comment.block.slim",
       "begin": "^(\\s*)(/)\\s.*$",
-      "end": "^(?!\\1(\t|  ))"
+      "end": "^(?!(\\1(\t|  ))|\\s*$)"
     },
     "slim-escaped-line": {
       "match": "^\\s*[|'].*$"
     },
     "slim-escaped-block": {
       "begin": "^(\\s*)[|']\\s.*$",
-      "end": "^(?!\\1(\t|  ))",
+      "end": "^(?!(\\1(\t|  ))|\\s*$)",
       "patterns": [
         { "include": "#ruby-embedded" }
       ]
