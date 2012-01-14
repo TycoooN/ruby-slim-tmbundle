@@ -2,11 +2,9 @@
 
 ## Description
 
-This is the [TextMate](http://macromates.com/) bundle for [Slim](http://slim-lang.com/), based on the [Fred Wu's Slim bundle](http://github.com/fredwu/ruby-slim-tmbundle).
+This is the [TextMate](http://macromates.com/) bundle for [Slim](http://slim-lang.com/), originally based on the [Fred Wu's Slim bundle](http://github.com/fredwu/ruby-slim-tmbundle). Actually later I've rewrote it completely from scratch.
 
-I left all the snippets &amp; stuff from the original bundle, the only thing I changed was the tmLanguage "syntax coloring" file. Actually I've rewrote it completely from scratch.
-
-This bundle is still in very early stage of development and is not fully tested, so feel free to post an issue if you find any bugs.
+This bundle is still in early stage of development and is not fully tested, so feel free to post an issue if you find any bugs.
 
 ## Scnreenshots
 
