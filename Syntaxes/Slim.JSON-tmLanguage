@@ -2,44 +2,62 @@
   "name": "Slim",
   "scopeName": "text.slim",
   "fileTypes": ["slim"],
+
+  "patterns": [
+    { "include": "#slim-block-comment" },
+    { "include": "#slim-line-comment" },
+    { "include": "#slim-escaped-content" },
+    { "include": "#ruby-logic" },
+    { "include": "#ruby-content" },
+    { "include": "#ruby-embedded" },
+    { "include": "#tag-unenclosed" },
+    { "include": "#tag-enclosed-1" },
+    { "include": "#tag-enclosed-2" },
+    { "include": "#tag-enclosed-3" }
+  ],
+
   "repository": {
+
     "slim-line-comment": {
       "name": "comment.line.slash.slim",
       "match": "^\\s*/.*$"
     },
+
     "slim-block-comment": {
       "name": "comment.block.slim",
       "begin": "^(\\s*)(/)\\s.*$",
       "end": "^(?!(\\1(\t|  ))|\\s*$)"
     },
-    "slim-escaped-line": {
-      "match": "^\\s*[|'].*$"
-    },
-    "slim-escaped-block": {
-      "begin": "^(\\s*)[|']\\s.*$",
+
+    "slim-escaped-content": {
+      "begin": "^(\\s*)[|'][ \t]",
       "end": "^(?!(\\1(\t|  ))|\\s*$)",
       "patterns": [
         { "include": "#ruby-embedded" }
       ]
     },
+
     "ruby-logic": {
       "name": "source.ruby.embedded.slim",
       "begin": "^\\s*-",
       "end": "$",
       "patterns": [ { "include": "source.ruby.rails" } ]
     },
+
     "ruby-content": {
       "name": "source.ruby.embedded.slim",
       "begin": "==?'? ",
       "end": "$",
       "patterns": [ { "include": "source.ruby.rails" } ]
     },
+
     "ruby-embedded": {
       "name": "source.ruby.embedded.slim",
       "begin": "(?<!\\\\)#{",
       "end": "}",
       "patterns": [ { "include": "source.ruby.rails" } ]
     },
+
     "tag-unenclosed": {
       "begin": "(?:^\\s*|:\\s*)([A-Za-z.#][A-Za-z0-9_.#-]*+)(?![\\[\\{\\(])",
       "end": "$",
@@ -54,6 +72,7 @@
         { "include": "#tag-unenclosed" }
       ]
     },
+
     "tag-enclosed-1": {
       "begin": "(?:^\\s*|:\\s*)([A-Za-z.#][A-Za-z0-9_.#-]*+)\\[",
       "end": "\\]",
@@ -65,6 +84,7 @@
         { "include": "#tag-params" }
       ]
     },
+
     "tag-enclosed-2": {
       "begin": "(?:^\\s*|:\\s*)([A-Za-z.#][A-Za-z0-9_.#-]*+)\\{",
       "end": "\\}",
@@ -76,6 +96,7 @@
         { "include": "#tag-params" }
       ]
     },
+
     "tag-enclosed-3": {
       "begin": "^\\s*([A-Za-z.#][A-Za-z0-9_.#-]*+)\\(",
       "end": "\\)",
@@ -87,6 +108,7 @@
         { "include": "#tag-params" }
       ]
     },
+
     "tag-params": {
       "patterns": [
         { "include": "#tag-param-name" },
@@ -96,43 +118,36 @@
         { "include": "#tag-param-value-enclosed-3" }
       ]
     },
+
     "tag-param-name": {
       "name": "entity.name.param.slim",
       "match": "[A-Za-z-]+(?==)"
     },
+
     "tag-param-value-unenclosed": {
       "begin": "=(?=[^ \\[\\{\\(])",
       "end": "\\s|(?=[}\\]\\)]|:\\s)",
       "patterns": [ { "include": "source.ruby.rails" } ]
     },
+
     "tag-param-value-enclosed-1": {
       "begin": "=\\[",
       "end": "\\]",
       "patterns": [ { "include": "source.ruby.rails" } ]
     },
+
     "tag-param-value-enclosed-2": {
       "begin": "=\\{",
       "end": "\\}",
       "patterns": [ { "include": "source.ruby.rails" } ]
     },
+
     "tag-param-value-enclosed-3": {
       "begin": "=\\(",
       "end": "\\)",
       "patterns": [ { "include": "source.ruby.rails" } ]
     }
   },
-  "patterns": [
-    { "include": "#slim-block-comment" },
-    { "include": "#slim-line-comment" },
-    { "include": "#slim-escaped-block" },
-    { "include": "#slim-escaped-line" },
-    { "include": "#ruby-logic" },
-    { "include": "#ruby-content" },
-    { "include": "#ruby-embedded" },
-    { "include": "#tag-unenclosed" },
-    { "include": "#tag-enclosed-1" },
-    { "include": "#tag-enclosed-2" },
-    { "include": "#tag-enclosed-3" }
-  ],
+
   "uuid": "71DE10E5-E691-4A97-B8E8-AC0D5E60FCAB"
 }

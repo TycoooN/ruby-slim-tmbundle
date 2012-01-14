@@ -20,11 +20,7 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#slim-escaped-block</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#slim-escaped-line</string>
+			<string>#slim-escaped-content</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -114,10 +110,10 @@
 			<key>name</key>
 			<string>comment.block.slim</string>
 		</dict>
-		<key>slim-escaped-block</key>
+		<key>slim-escaped-content</key>
 		<dict>
 			<key>begin</key>
-			<string>^(\s*)[|']\s.*$</string>
+			<string>^(\s*)[|'][ 	]</string>
 			<key>end</key>
 			<string>^(?!(\1(	|  ))|\s*$)</string>
 			<key>patterns</key>
@@ -127,11 +123,6 @@
 					<string>#ruby-embedded</string>
 				</dict>
 			</array>
-		</dict>
-		<key>slim-escaped-line</key>
-		<dict>
-			<key>match</key>
-			<string>^\s*[|'].*$</string>
 		</dict>
 		<key>slim-line-comment</key>
 		<dict>
