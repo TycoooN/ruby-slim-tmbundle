@@ -123,7 +123,8 @@
 			<key>begin</key>
 			<string>==?'? </string>
 			<key>end</key>
-			<string>$</string>
+			<string>(?&lt;!\\)\s*
+</string>
 			<key>name</key>
 			<string>source.ruby.embedded.slim</string>
 			<key>patterns</key>
@@ -153,9 +154,10 @@
 		<key>ruby-logic</key>
 		<dict>
 			<key>begin</key>
-			<string>(?=\s*+)-</string>
+			<string>^\s*(?=-)</string>
 			<key>end</key>
-			<string>$</string>
+			<string>(?&lt;!\\)\s*
+</string>
 			<key>name</key>
 			<string>source.ruby.embedded.slim</string>
 			<key>patterns</key>
@@ -199,7 +201,7 @@
 		<key>tag-enclosed-1</key>
 		<dict>
 			<key>begin</key>
-			<string>(?:^\s*|(?!^):\s*)([A-Za-z.#][\w.#-]*+)\[</string>
+			<string>(([A-Za-z.#][\w.#-]*\w)++|\w)\[</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -227,7 +229,7 @@
 		<key>tag-enclosed-2</key>
 		<dict>
 			<key>begin</key>
-			<string>(?:^\s*|(?!^):\s*)([A-Za-z.#][\w.#-]*+)\{</string>
+			<string>(([A-Za-z.#][\w.#-]*\w)++|\w)\{</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -253,7 +255,7 @@
 		<key>tag-enclosed-3</key>
 		<dict>
 			<key>begin</key>
-			<string>(?:^\s*|(?!^):\s*)([A-Za-z.#][\w.#-]*+)\(</string>
+			<string>(([A-Za-z.#][\w.#-]*\w)++|\w)\(</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -279,7 +281,7 @@
 		<key>tag-param-name</key>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;=[\s\[\(\{])\w[\w-]*(?==)</string>
+			<string>(?&lt;=[\s\[\{\(])\w[\w-]*(?==)</string>
 			<key>name</key>
 			<string>entity.name.param.slim</string>
 		</dict>
@@ -326,7 +328,7 @@
 		<key>tag-unenclosed</key>
 		<dict>
 			<key>begin</key>
-			<string>(?:^\s*|(?!^):\s*)([A-Za-z.#][\w.#-]*+)(?![\[\{\(])</string>
+			<string>(?:^\s*|(?!^):\s*)((?:([A-Za-z.#][\w.#-]*\w)++|\w))(?![\[\{\(])</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
