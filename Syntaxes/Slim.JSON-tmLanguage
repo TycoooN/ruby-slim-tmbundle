@@ -13,7 +13,8 @@
     { "include": "#tag-unenclosed" },
     { "include": "#tag-enclosed-1" },
     { "include": "#tag-enclosed-2" },
-    { "include": "#tag-enclosed-3" }
+    { "include": "#tag-enclosed-3" },
+    { "include": "#illegal" }
   ],
 
   "repository": {
@@ -39,7 +40,7 @@
 
     "ruby-logic": {
       "name": "source.ruby.embedded.slim",
-      "begin": "^\\s*-",
+      "begin": "(?=\\s*+)-",
       "end": "$",
       "patterns": [ { "include": "source.ruby.rails" } ]
     },
@@ -59,93 +60,113 @@
     },
 
     "tag-unenclosed": {
-      "begin": "(?:^\\s*|:\\s*)([A-Za-z.#][A-Za-z0-9_.#-]*+)(?![\\[\\{\\(])",
+      "begin": "(?:^\\s*|(?!^):\\s*)([A-Za-z.#][\\w.#-]*+)(?![\\[\\{\\(])",
       "end": "$",
       "beginCaptures": {
         "1": { "name": "keyword.tag.slim" }
       },
       "patterns": [
-        { "include": "#ruby-content" },
         { "include": "#tag-params" },
+        { "include": "#ruby-content" },
         { "include": "#inline-tags" },
         { "include": "#ruby-embedded" },
-        { "include": "#tag-unenclosed" }
+        { "include": "#tag-unenclosed" },
+        { "include": "#tag-enclosed-1" },
+        { "include": "#tag-enclosed-2" },
+        { "include": "#tag-enclosed-3" }
       ]
     },
 
     "tag-enclosed-1": {
-      "begin": "(?:^\\s*|:\\s*)([A-Za-z.#][A-Za-z0-9_.#-]*+)\\[",
+      "name": "tag-enclosed-1",
+      "begin": "(?:^\\s*|(?!^):\\s*)([A-Za-z.#][\\w.#-]*+)\\[",
       "end": "\\]",
       "beginCaptures": {
         "1": { "name": "keyword.tag.slim" }
       },
       "patterns": [
-        { "include": "#ruby-content" },
-        { "include": "#tag-params" }
+        { "include": "#tag-params" },
+        { "include": "#ruby-content" }
       ]
     },
 
     "tag-enclosed-2": {
-      "begin": "(?:^\\s*|:\\s*)([A-Za-z.#][A-Za-z0-9_.#-]*+)\\{",
+      "begin": "(?:^\\s*|(?!^):\\s*)([A-Za-z.#][\\w.#-]*+)\\{",
       "end": "\\}",
       "beginCaptures": {
         "1": { "name": "keyword.tag.slim" }
       },
       "patterns": [
-        { "include": "#ruby-content" },
-        { "include": "#tag-params" }
+        { "include": "#tag-params" },
+        { "include": "#ruby-content" }
       ]
     },
 
     "tag-enclosed-3": {
-      "begin": "^\\s*([A-Za-z.#][A-Za-z0-9_.#-]*+)\\(",
+      "begin": "(?:^\\s*|(?!^):\\s*)([A-Za-z.#][\\w.#-]*+)\\(",
       "end": "\\)",
       "beginCaptures": {
         "1": { "name": "keyword.tag.slim" }
       },
       "patterns": [
-        { "include": "#ruby-content" },
-        { "include": "#tag-params" }
+        { "include": "#tag-params" },
+        { "include": "#ruby-content" }
       ]
     },
 
     "tag-params": {
       "patterns": [
         { "include": "#tag-param-name" },
-        { "include": "#tag-param-value-unenclosed" },
-        { "include": "#tag-param-value-enclosed-1" },
-        { "include": "#tag-param-value-enclosed-2" },
-        { "include": "#tag-param-value-enclosed-3" }
+        { "include": "#tag-param-value" }
       ]
     },
 
     "tag-param-name": {
       "name": "entity.name.param.slim",
-      "match": "[A-Za-z-]+(?==)"
+      "match": "(?<=[\\s\\[\\{\\(])\\w[\\w-]*(?==)"
     },
 
-    "tag-param-value-unenclosed": {
-      "begin": "=(?=[^ \\[\\{\\(])",
-      "end": "\\s|(?=[}\\]\\)]|:\\s)",
-      "patterns": [ { "include": "source.ruby.rails" } ]
+    "tag-param-value": {
+      "begin": "(?<=\\w)=(?!\\s)",
+      "end": "\\s|(?=[\\]\\}\\)]|:\\s)",
+      "patterns": [
+        { "include": "#brackets-content-1" },
+        { "include": "#brackets-content-2" },
+        { "include": "#brackets-content-3" },
+        { "include": "source.ruby.rails" }
+      ]
     },
 
-    "tag-param-value-enclosed-1": {
-      "begin": "=\\[",
+    "brackets-content-1": {
+      "begin": "\\[",
       "end": "\\]",
-      "patterns": [ { "include": "source.ruby.rails" } ]
+      "patterns": [
+        { "include": "#brackets-content-1" },
+        { "include": "source.ruby.rails" }
+      ]
     },
 
-    "tag-param-value-enclosed-2": {
-      "begin": "=\\{",
+    "brackets-content-2": {
+      "begin": "\\{",
       "end": "\\}",
-      "patterns": [ { "include": "source.ruby.rails" } ]
+      "patterns": [
+        { "include": "#brackets-content-2" },
+        { "include": "source.ruby.rails" }
+      ]
     },
 
-    "tag-param-value-enclosed-3": {
-      "begin": "=\\(",
+    "brackets-content-3": {
+      "begin": "\\(",
       "end": "\\)",
-      "patterns": [ { "include": "source.ruby.rails" } ]
+      "patterns": [
+        { "include": "#brackets-content-3" },
+        { "include": "source.ruby.rails" }
+      ]
+    },
+
+    "illegal": {
+      "match": "^\\s*+[^\\w=.#|'-].*$",
+      "name": "invalid.illegal"
     }
   },
 
