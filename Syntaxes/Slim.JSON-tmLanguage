@@ -3,9 +3,24 @@
   "name": "Slim",
   "fileTypes": ["slim"],
   "repository": {
-    "slim-comment": {
+    "slim-line-comment": {
       "name": "comment.line.slash.slim",
-      "match": "\\s*/.*$"
+      "match": "^\\s*/.*$"
+    },
+    "slim-block-comment": {
+      "name": "comment.block.slim",
+      "begin": "^(\\s*)(/)\\s.*$",
+      "end": "^(?!\\1(\t|  ))"
+    },
+    "slim-escaped-line": {
+      "match": "^\\s*[|'].*$"
+    },
+    "slim-escaped-block": {
+      "begin": "^(\\s*)[|']\\s.*$",
+      "end": "^(?!\\1(\t|  ))",
+      "patterns": [
+        { "include": "#ruby-embedded" }
+      ]
     },
     "ruby-logic": {
       "name": "source.ruby.embedded",
@@ -26,7 +41,6 @@
       "patterns": [ { "include": "source.ruby.rails" } ]
     },
     "tag-unenclosed": {
-      "name": "text.slim.tag",
       "begin": "(?:^\\s*|:\\s*)([A-Za-z.#][A-Za-z0-9_.#-]*+)(?![\\[\\{\\(])",
       "end": "$",
       "beginCaptures": {
@@ -41,7 +55,6 @@
       ]
     },
     "tag-enclosed-1": {
-      "name": "text.slim.tag",
       "begin": "(?:^\\s*|:\\s*)([A-Za-z.#][A-Za-z0-9_.#-]*+)\\[",
       "end": "\\]",
       "beginCaptures": {
@@ -53,7 +66,6 @@
       ]
     },
     "tag-enclosed-2": {
-      "name": "text.slim.tag",
       "begin": "(?:^\\s*|:\\s*)([A-Za-z.#][A-Za-z0-9_.#-]*+)\\{",
       "end": "\\}",
       "beginCaptures": {
@@ -65,7 +77,6 @@
       ]
     },
     "tag-enclosed-3": {
-      "name": "text.slim.tag",
       "begin": "^\\s*([A-Za-z.#][A-Za-z0-9_.#-]*+)\\(",
       "end": "\\)",
       "beginCaptures": {
@@ -111,7 +122,10 @@
     }
   },
   "patterns": [
-    { "include": "#slim-comment" },
+    { "include": "#slim-block-comment" },
+    { "include": "#slim-line-comment" },
+    { "include": "#slim-escaped-block" },
+    { "include": "#slim-escaped-line" },
     { "include": "#ruby-logic" },
     { "include": "#ruby-content" },
     { "include": "#ruby-embedded" },
@@ -120,5 +134,5 @@
     { "include": "#tag-enclosed-2" },
     { "include": "#tag-enclosed-3" }
   ],
-  "uuid": "35d59c9e-b2cf-4db3-95ac-807f5b067ecb"
+  "uuid": "71DE10E5-E691-4A97-B8E8-AC0D5E60FCAB"
 }

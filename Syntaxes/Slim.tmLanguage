@@ -12,7 +12,19 @@
 	<array>
 		<dict>
 			<key>include</key>
-			<string>#slim-comment</string>
+			<string>#slim-block-comment</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#slim-line-comment</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#slim-escaped-block</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#slim-escaped-line</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -93,10 +105,38 @@
 				</dict>
 			</array>
 		</dict>
-		<key>slim-comment</key>
+		<key>slim-block-comment</key>
+		<dict>
+			<key>begin</key>
+			<string>^(\s*)(/)\s.*$</string>
+			<key>end</key>
+			<string>^(?!\1(	|  ))</string>
+			<key>name</key>
+			<string>comment.block.slim</string>
+		</dict>
+		<key>slim-escaped-block</key>
+		<dict>
+			<key>begin</key>
+			<string>^(\s*)[|']\s.*$</string>
+			<key>end</key>
+			<string>^(?!\1(	|  ))</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#ruby-embedded</string>
+				</dict>
+			</array>
+		</dict>
+		<key>slim-escaped-line</key>
 		<dict>
 			<key>match</key>
-			<string>\s*/.*$</string>
+			<string>^\s*[|'].*$</string>
+		</dict>
+		<key>slim-line-comment</key>
+		<dict>
+			<key>match</key>
+			<string>^\s*/.*$</string>
 			<key>name</key>
 			<string>comment.line.slash.slim</string>
 		</dict>
@@ -114,8 +154,6 @@
 			</dict>
 			<key>end</key>
 			<string>\]</string>
-			<key>name</key>
-			<string>text.slim.tag</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -142,8 +180,6 @@
 			</dict>
 			<key>end</key>
 			<string>\}</string>
-			<key>name</key>
-			<string>text.slim.tag</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -170,8 +206,6 @@
 			</dict>
 			<key>end</key>
 			<string>\)</string>
-			<key>name</key>
-			<string>text.slim.tag</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -287,8 +321,6 @@
 			</dict>
 			<key>end</key>
 			<string>$</string>
-			<key>name</key>
-			<string>text.slim.tag</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -317,6 +349,6 @@
 	<key>scopeName</key>
 	<string>text.slim</string>
 	<key>uuid</key>
-	<string>35d59c9e-b2cf-4db3-95ac-807f5b067ecb</string>
+	<string>71DE10E5-E691-4A97-B8E8-AC0D5E60FCAB</string>
 </dict>
 </plist>
