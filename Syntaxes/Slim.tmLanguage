@@ -64,7 +64,7 @@
 			<key>end</key>
 			<string>$</string>
 			<key>name</key>
-			<string>source.ruby.embedded</string>
+			<string>source.ruby.embedded.slim</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -80,7 +80,7 @@
 			<key>end</key>
 			<string>}</string>
 			<key>name</key>
-			<string>source.ruby.embedded</string>
+			<string>source.ruby.embedded.slim</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -96,7 +96,7 @@
 			<key>end</key>
 			<string>$</string>
 			<key>name</key>
-			<string>source.ruby.embedded</string>
+			<string>source.ruby.embedded.slim</string>
 			<key>patterns</key>
 			<array>
 				<dict>

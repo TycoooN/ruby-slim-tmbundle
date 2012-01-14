@@ -23,19 +23,19 @@
       ]
     },
     "ruby-logic": {
-      "name": "source.ruby.embedded",
+      "name": "source.ruby.embedded.slim",
       "begin": "^\\s*-",
       "end": "$",
       "patterns": [ { "include": "source.ruby.rails" } ]
     },
     "ruby-content": {
-      "name": "source.ruby.embedded",
+      "name": "source.ruby.embedded.slim",
       "begin": "==?'? ",
       "end": "$",
       "patterns": [ { "include": "source.ruby.rails" } ]
     },
     "ruby-embedded": {
-      "name": "source.ruby.embedded",
+      "name": "source.ruby.embedded.slim",
       "begin": "(?<!\\\\)#{",
       "end": "}",
       "patterns": [ { "include": "source.ruby.rails" } ]
