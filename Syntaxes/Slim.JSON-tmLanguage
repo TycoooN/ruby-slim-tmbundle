@@ -40,15 +40,15 @@
 
     "ruby-logic": {
       "name": "source.ruby.embedded.slim",
-      "begin": "(?=\\s*+)-",
-      "end": "$",
+      "begin": "^\\s*(?=-)",
+      "end": "(?<!\\\\)\\s*\n",
       "patterns": [ { "include": "source.ruby.rails" } ]
     },
 
     "ruby-content": {
       "name": "source.ruby.embedded.slim",
       "begin": "==?'? ",
-      "end": "$",
+      "end": "(?<!\\\\)\\s*\n",
       "patterns": [ { "include": "source.ruby.rails" } ]
     },
 
@@ -60,7 +60,7 @@
     },
 
     "tag-unenclosed": {
-      "begin": "(?:^\\s*|(?!^):\\s*)([A-Za-z.#][\\w.#-]*+)(?![\\[\\{\\(])",
+      "begin": "(?:^\\s*|(?!^):\\s*)((?:([A-Za-z.#][\\w.#-]*\\w)++|\\w))(?![\\[\\{\\(])",
       "end": "$",
       "beginCaptures": {
         "1": { "name": "entity.name.tag.slim" }
@@ -79,7 +79,7 @@
 
     "tag-enclosed-1": {
       "name": "tag-enclosed-1",
-      "begin": "(?:^\\s*|(?!^):\\s*)([A-Za-z.#][\\w.#-]*+)\\[",
+      "begin": "(([A-Za-z.#][\\w.#-]*\\w)++|\\w)\\[",
       "end": "\\]",
       "beginCaptures": {
         "1": { "name": "entity.name.tag.slim" }
@@ -91,7 +91,7 @@
     },
 
     "tag-enclosed-2": {
-      "begin": "(?:^\\s*|(?!^):\\s*)([A-Za-z.#][\\w.#-]*+)\\{",
+      "begin": "(([A-Za-z.#][\\w.#-]*\\w)++|\\w)\\{",
       "end": "\\}",
       "beginCaptures": {
         "1": { "name": "entity.name.tag.slim" }
@@ -103,7 +103,7 @@
     },
 
     "tag-enclosed-3": {
-      "begin": "(?:^\\s*|(?!^):\\s*)([A-Za-z.#][\\w.#-]*+)\\(",
+      "begin": "(([A-Za-z.#][\\w.#-]*\\w)++|\\w)\\(",
       "end": "\\)",
       "beginCaptures": {
         "1": { "name": "entity.name.tag.slim" }
@@ -169,6 +169,7 @@
       "match": "^\\s*+[^\\w=.#|'-].*$",
       "name": "invalid.illegal"
     }
+
   },
 
   "uuid": "71DE10E5-E691-4A97-B8E8-AC0D5E60FCAB"
