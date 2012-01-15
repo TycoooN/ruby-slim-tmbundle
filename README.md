@@ -16,8 +16,11 @@ This bundle is still in early stage of development and is not fully tested, so f
 
 ## Scnreenshots
 
-- [Before](http://dl.dropbox.com/u/8231702/Screenshots/qhc8gy6j%7E2i%7E.png)
-- [After](http://dl.dropbox.com/u/8231702/Screenshots/a5_r-_6_4jom.png)
+##### Before
+![Before](http://dl.dropbox.com/u/8231702/Screenshots/qhc8gy6j%7E2i%7E.png)
+
+##### After
+![After](http://dl.dropbox.com/u/8231702/Screenshots/a5_r-_6_4jom.png)
 
 ## Installation
 
