@@ -207,7 +207,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.tag.slim</string>
+					<string>entity.name.tag.slim</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -235,7 +235,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.tag.slim</string>
+					<string>entity.name.tag.slim</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -261,7 +261,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.tag.slim</string>
+					<string>entity.name.tag.slim</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -330,7 +330,7 @@
 		<key>tag-unenclosed</key>
 		<dict>
 			<key>begin</key>
-			<string>(?:^\s*|(?!^):\s*)((?:([A-Za-z.#][\w.#-]*\w)++|\w))(?![\[\{\(])</string>
+			<string>(?:^\s*|(?!^):\s*)((?:([A-Za-z.#][\w.#-]*\w)++|[A-Za-z]))(?![\[\{\(])</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>

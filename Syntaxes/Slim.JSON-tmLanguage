@@ -60,7 +60,7 @@
     },
 
     "tag-unenclosed": {
-      "begin": "(?:^\\s*|(?!^):\\s*)((?:([A-Za-z.#][\\w.#-]*\\w)++|\\w))(?![\\[\\{\\(])",
+      "begin": "(?:^\\s*|(?!^):\\s*)((?:([A-Za-z.#][\\w.#-]*\\w)++|[A-Za-z]))(?![\\[\\{\\(])",
       "end": "$",
       "beginCaptures": {
         "1": { "name": "entity.name.tag.slim" }
