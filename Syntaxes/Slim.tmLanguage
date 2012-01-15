@@ -279,7 +279,7 @@
 		<key>tag-param-name</key>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;=[\s\[\(\{])\w[\w-]*(?==)</string>
+			<string>(?&lt;=[\s\[\{\(])\w[\w-]*(?==)</string>
 			<key>name</key>
 			<string>entity.name.param.slim</string>
 		</dict>
@@ -289,6 +289,8 @@
 			<string>(?&lt;=\w)=(?!\s)</string>
 			<key>end</key>
 			<string>\s|(?=[\]\}\)]|:\s)</string>
+			<key>name</key>
+			<string>source.ruby</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -332,7 +334,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.tag.slim</string>
+					<string>entity.name.tag.slim</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -345,11 +347,11 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#ruby-content</string>
+					<string>#inline-tags</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#inline-tags</string>
+					<string>#ruby-content</string>
 				</dict>
 				<dict>
 					<key>include</key>

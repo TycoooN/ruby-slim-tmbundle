@@ -63,12 +63,12 @@
       "begin": "(?:^\\s*|(?!^):\\s*)([A-Za-z.#][\\w.#-]*+)(?![\\[\\{\\(])",
       "end": "$",
       "beginCaptures": {
-        "1": { "name": "keyword.tag.slim" }
+        "1": { "name": "entity.name.tag.slim" }
       },
       "patterns": [
         { "include": "#tag-params" },
-        { "include": "#ruby-content" },
         { "include": "#inline-tags" },
+        { "include": "#ruby-content" },
         { "include": "#ruby-embedded" },
         { "include": "#tag-unenclosed" },
         { "include": "#tag-enclosed-1" },
@@ -82,7 +82,7 @@
       "begin": "(?:^\\s*|(?!^):\\s*)([A-Za-z.#][\\w.#-]*+)\\[",
       "end": "\\]",
       "beginCaptures": {
-        "1": { "name": "keyword.tag.slim" }
+        "1": { "name": "entity.name.tag.slim" }
       },
       "patterns": [
         { "include": "#tag-params" },
@@ -94,7 +94,7 @@
       "begin": "(?:^\\s*|(?!^):\\s*)([A-Za-z.#][\\w.#-]*+)\\{",
       "end": "\\}",
       "beginCaptures": {
-        "1": { "name": "keyword.tag.slim" }
+        "1": { "name": "entity.name.tag.slim" }
       },
       "patterns": [
         { "include": "#tag-params" },
@@ -106,7 +106,7 @@
       "begin": "(?:^\\s*|(?!^):\\s*)([A-Za-z.#][\\w.#-]*+)\\(",
       "end": "\\)",
       "beginCaptures": {
-        "1": { "name": "keyword.tag.slim" }
+        "1": { "name": "entity.name.tag.slim" }
       },
       "patterns": [
         { "include": "#tag-params" },
@@ -129,6 +129,7 @@
     "tag-param-value": {
       "begin": "(?<=\\w)=(?!\\s)",
       "end": "\\s|(?=[\\]\\}\\)]|:\\s)",
+      "name": "source.ruby",
       "patterns": [
         { "include": "#brackets-content-1" },
         { "include": "#brackets-content-2" },
