@@ -6,13 +6,14 @@ This is the [TextMate](http://macromates.com/) bundle for [Slim](http://slim-lan
 
 This bundle is still in early stage of development and is not fully tested, so feel free to post an issue if you find any bugs.
 
-## Featues
+## Features
 
 - Support for unwrapped tag attributes and their values
 - Support for wrapped with `[]{}()` tag attributes (including multiline) and their values
 - Attribute values are highlighted as Ruby on Rails
 - Support for multiline comments
 - Support for multiline escaped with `|` and `'` blocks
+- Illegal syntax is highlighted (makes it super easy to migrate from haml)
 
 ## Screenshots
 
