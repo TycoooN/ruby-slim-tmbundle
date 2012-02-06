@@ -6,15 +6,16 @@ This is the [TextMate](http://macromates.com/) bundle for [Slim](http://slim-lan
 
 This bundle is still in early stage of development and is not fully tested, so feel free to post an issue if you find any bugs.
 
-## Featues
+## Features
 
 - Support for unwrapped tag attributes and their values
 - Support for wrapped with `[]{}()` tag attributes (including multiline) and their values
 - Attribute values are highlighted as Ruby on Rails
 - Support for multiline comments
 - Support for multiline escaped with `|` and `'` blocks
+- Illegal syntax is highlighted (makes it super easy to migrate from haml)
 
-## Scnreenshots
+## Screenshots
 
 ##### Before
 ![Before](http://dl.dropbox.com/u/8231702/Screenshots/qhc8gy6j%7E2i%7E.png)
@@ -25,7 +26,7 @@ This bundle is still in early stage of development and is not fully tested, so f
 ## Installation
 
     cd ~/Library/Application\ Support/TextMate/Bundles/
-    git clone git://github.com/TycoooN/ruby-slim-tmbundle.git Slim.tmbundle
+    git clone git://github.com/tycooon/ruby-slim-tmbundle.git Slim.tmbundle
     osascript -e 'tell app "TextMate" to reload bundles'
 
 ## Development process
@@ -36,4 +37,4 @@ If you have any questions or suggestions, you are welcome to post an issue or me
 
 ## Author
 
-Smirnov Yuri aka TycoooN
+Smirnov Yuri *aka TycoooN*
