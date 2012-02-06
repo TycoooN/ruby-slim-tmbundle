@@ -33,6 +33,7 @@
     "slim-escaped-content": {
       "begin": "^(\\s*)[|'][ \t]",
       "end": "^(?!(\\1(\t|  ))|\\s*$)",
+      "name": "string",
       "patterns": [
         { "include": "#ruby-embedded" }
       ]
@@ -41,14 +42,14 @@
     "ruby-logic": {
       "name": "source.ruby.embedded.slim",
       "begin": "^\\s*(?=-)",
-      "end": "(?<!\\\\)\\s*\n",
+      "end": "(?<!\\\\)\n",
       "patterns": [ { "include": "source.ruby.rails" } ]
     },
 
     "ruby-content": {
       "name": "source.ruby.embedded.slim",
       "begin": "==?'? ",
-      "end": "(?<!\\\\)\\s*\n",
+      "end": "(?<!\\\\)\n",
       "patterns": [ { "include": "source.ruby.rails" } ]
     },
 
@@ -129,7 +130,7 @@
     "tag-param-value": {
       "begin": "(?<=\\w)=(?!\\s)",
       "end": "\\s|(?=[\\]\\}\\)]|:\\s)",
-      "name": "source.ruby",
+      "name": "source.ruby.embedded.slim",
       "patterns": [
         { "include": "#brackets-content-1" },
         { "include": "#brackets-content-2" },
