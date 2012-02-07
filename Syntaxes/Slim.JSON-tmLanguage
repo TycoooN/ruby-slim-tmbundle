@@ -42,14 +42,14 @@
     "ruby-logic": {
       "name": "source.ruby.embedded.slim",
       "begin": "^\\s*(?=-)",
-      "end": "(?<!\\\\)\n",
+      "end": "(?<=do\n)|(?<!\\\\)\n",
       "patterns": [ { "include": "source.ruby.rails" } ]
     },
 
     "ruby-content": {
       "name": "source.ruby.embedded.slim",
       "begin": "==?'? ",
-      "end": "(?<!\\\\)\n",
+      "end": "(?<=do\n)|(?<!\\\\)\n",
       "patterns": [ { "include": "source.ruby.rails" } ]
     },
 
