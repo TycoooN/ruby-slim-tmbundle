@@ -33,28 +33,29 @@
     "slim-escaped-content": {
       "begin": "^(\\s*)[|'][ \t]",
       "end": "^(?!(\\1(\t|  ))|\\s*$)",
-      "name": "string",
+      "name": "text.slim.escaped-content",
       "patterns": [
-        { "include": "#ruby-embedded" }
+        { "include": "#ruby-embedded" },
+        { "include": "text.html.basic" }
       ]
     },
 
     "ruby-logic": {
-      "name": "source.ruby.embedded.slim",
+      "name": "source.ruby.rails.embedded.slim",
       "begin": "^\\s*(?=-)",
-      "end": "(?<=do\n)|(?<!\\\\)\n",
+      "end": "(?<=do\\n)|(?<!\\\\)\\n",
       "patterns": [ { "include": "source.ruby.rails" } ]
     },
 
     "ruby-content": {
-      "name": "source.ruby.embedded.slim",
+      "name": "source.ruby.rails.embedded.slim",
       "begin": "==?'? ",
-      "end": "(?<=do\n)|(?<!\\\\)\n",
+      "end": "(?<=do\\n)|(?<!\\\\)\\n",
       "patterns": [ { "include": "source.ruby.rails" } ]
     },
 
     "ruby-embedded": {
-      "name": "source.ruby.embedded.slim",
+      "name": "source.ruby.rails.embedded.slim",
       "begin": "(?<!\\\\)#{",
       "end": "}",
       "patterns": [ { "include": "source.ruby.rails" } ]
@@ -74,7 +75,8 @@
         { "include": "#tag-unenclosed" },
         { "include": "#tag-enclosed-1" },
         { "include": "#tag-enclosed-2" },
-        { "include": "#tag-enclosed-3" }
+        { "include": "#tag-enclosed-3" },
+        { "include": "text.html.basic" }
       ]
     },
 
@@ -130,7 +132,7 @@
     "tag-param-value": {
       "begin": "(?<=\\w)=(?!\\s)",
       "end": "\\s|(?=[\\]\\}\\)]|:\\s)",
-      "name": "source.ruby.embedded.slim",
+      "name": "source.ruby.rails.embedded.slim",
       "patterns": [
         { "include": "#brackets-content-1" },
         { "include": "#brackets-content-2" },

@@ -123,11 +123,9 @@
 			<key>begin</key>
 			<string>==?'? </string>
 			<key>end</key>
-			<string>(?&lt;=do
-)|(?&lt;!\\)
-</string>
+			<string>(?&lt;=do\n)|(?&lt;!\\)\n</string>
 			<key>name</key>
-			<string>source.ruby.embedded.slim</string>
+			<string>source.ruby.rails.embedded.slim</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -143,7 +141,7 @@
 			<key>end</key>
 			<string>}</string>
 			<key>name</key>
-			<string>source.ruby.embedded.slim</string>
+			<string>source.ruby.rails.embedded.slim</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -157,11 +155,9 @@
 			<key>begin</key>
 			<string>^\s*(?=-)</string>
 			<key>end</key>
-			<string>(?&lt;=do
-)|(?&lt;!\\)
-</string>
+			<string>(?&lt;=do\n)|(?&lt;!\\)\n</string>
 			<key>name</key>
-			<string>source.ruby.embedded.slim</string>
+			<string>source.ruby.rails.embedded.slim</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -186,12 +182,16 @@
 			<key>end</key>
 			<string>^(?!(\1(	|  ))|\s*$)</string>
 			<key>name</key>
-			<string>string</string>
+			<string>text.slim.escaped-content</string>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>include</key>
 					<string>#ruby-embedded</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>text.html.basic</string>
 				</dict>
 			</array>
 		</dict>
@@ -296,7 +296,7 @@
 			<key>end</key>
 			<string>\s|(?=[\]\}\)]|:\s)</string>
 			<key>name</key>
-			<string>source.ruby.embedded.slim</string>
+			<string>source.ruby.rails.embedded.slim</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -378,6 +378,10 @@
 				<dict>
 					<key>include</key>
 					<string>#tag-enclosed-3</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>text.html.basic</string>
 				</dict>
 			</array>
 		</dict>
