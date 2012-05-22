@@ -4,6 +4,10 @@
   "fileTypes": ["slim"],
 
   "patterns": [
+    { "include": "#embedded-engine-css" },
+    { "include": "#embedded-engine-sass" },
+    { "include": "#embedded-engine-stylus" },
+    { "include": "#embedded-engine-scss" },
     { "include": "#slim-block-comment" },
     { "include": "#slim-line-comment" },
     { "include": "#slim-escaped-content" },
@@ -18,7 +22,6 @@
   ],
 
   "repository": {
-
     "slim-line-comment": {
       "name": "comment.line.slash.slim",
       "match": "^\\s*/.*$"
@@ -171,6 +174,50 @@
     "illegal": {
       "match": "^\\s*+[^\\w=.#|'-].*$",
       "name": "invalid.illegal"
+    },
+
+    "embedded-engine-css": {
+      "begin": "^(\\s*)(css:)\\s.*$",
+      "end": "^(?!(\\1(\t|  ))|\\s*$)",
+      "beginCaptures": {
+          "2": { "name": "entity.name.tag.slim" }
+      },
+      "patterns": [
+        { "include": "source.css" }
+      ]
+    },
+
+    "embedded-engine-sass": {
+      "begin": "^(\\s*)(sass:)\\s.*$",
+      "end": "^(?!(\\1(\t|  ))|\\s*$)",
+      "beginCaptures": {
+          "2": { "name": "entity.name.tag.slim" }
+      },
+      "patterns": [
+        { "include": "source.sass" }
+      ]
+    },
+
+    "embedded-engine-scss": {
+      "begin": "^(\\s*)(scss:)\\s.*$",
+      "end": "^(?!(\\1(\t|  ))|\\s*$)",
+      "beginCaptures": {
+          "2": { "name": "entity.name.tag.slim" }
+      },
+      "patterns": [
+        { "include": "source.scss" }
+      ]
+    },
+
+    "embedded-engine-stylus": {
+      "begin": "^(\\s*)(styl:)\\s.*$",
+      "end": "^(?!(\\1(\t|  ))|\\s*$)",
+      "beginCaptures": {
+          "2": { "name": "entity.name.tag.slim" }
+      },
+      "patterns": [
+        { "include": "source.stylus" }
+      ]
     }
 
   },

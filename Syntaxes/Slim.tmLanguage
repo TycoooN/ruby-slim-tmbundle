@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>fileTypes</key>
@@ -10,6 +10,22 @@
 	<string>Slim</string>
 	<key>patterns</key>
 	<array>
+		<dict>
+			<key>include</key>
+			<string>#embedded-engine-css</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#embedded-engine-sass</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#embedded-engine-stylus</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#embedded-engine-scss</string>
+		</dict>
 		<dict>
 			<key>include</key>
 			<string>#slim-block-comment</string>
@@ -108,6 +124,94 @@
 				<dict>
 					<key>include</key>
 					<string>source.ruby.rails</string>
+				</dict>
+			</array>
+		</dict>
+		<key>embedded-engine-css</key>
+		<dict>
+			<key>begin</key>
+			<string>^(\s*)(css:)\s.*$</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.slim</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>^(?!(\1(	|  ))|\s*$)</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.css</string>
+				</dict>
+			</array>
+		</dict>
+		<key>embedded-engine-sass</key>
+		<dict>
+			<key>begin</key>
+			<string>^(\s*)(sass:)\s.*$</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.slim</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>^(?!(\1(	|  ))|\s*$)</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.sass</string>
+				</dict>
+			</array>
+		</dict>
+		<key>embedded-engine-scss</key>
+		<dict>
+			<key>begin</key>
+			<string>^(\s*)(scss:)\s.*$</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.slim</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>^(?!(\1(	|  ))|\s*$)</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.scss</string>
+				</dict>
+			</array>
+		</dict>
+		<key>embedded-engine-stylus</key>
+		<dict>
+			<key>begin</key>
+			<string>^(\s*)(styl:)\s.*$</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.slim</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>^(?!(\1(	|  ))|\s*$)</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.stylus</string>
 				</dict>
 			</array>
 		</dict>
