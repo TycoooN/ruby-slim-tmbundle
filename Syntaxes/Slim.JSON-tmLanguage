@@ -8,6 +8,8 @@
     { "include": "#embedded-engine-sass" },
     { "include": "#embedded-engine-stylus" },
     { "include": "#embedded-engine-scss" },
+    { "include": "#embedded-engine-coffee" },
+    { "include": "#embedded-engine-javascript" },
     { "include": "#slim-block-comment" },
     { "include": "#slim-line-comment" },
     { "include": "#slim-escaped-content" },
@@ -53,7 +55,7 @@
     "ruby-content": {
       "name": "source.ruby.rails.embedded.slim",
       "begin": "==?'? ",
-      "end": "(?<=do\\n)|(?<!\\\\)\\n",
+      "end": "(?<=do\\n)|(?<!\\\\|,)\\n",
       "patterns": [ { "include": "source.ruby.rails" } ]
     },
 
@@ -217,6 +219,28 @@
       },
       "patterns": [
         { "include": "source.stylus" }
+      ]
+    },
+
+    "embedded-engine-coffee": {
+      "begin": "^(\\s*)(coffee:)\\s.*$",
+      "end": "^(?!(\\1(\t|  ))|\\s*$)",
+      "beginCaptures": {
+          "2": { "name": "entity.name.tag.slim" }
+      },
+      "patterns": [
+        { "include": "source.coffee" }
+      ]
+    },
+
+    "embedded-engine-javascript": {
+      "begin": "^(\\s*)(javascript:)\\s.*$",
+      "end": "^(?!(\\1(\t|  ))|\\s*$)",
+      "beginCaptures": {
+          "2": { "name": "entity.name.tag.slim" }
+      },
+      "patterns": [
+        { "include": "source.js" }
       ]
     }
 

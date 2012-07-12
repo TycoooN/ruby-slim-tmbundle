@@ -28,6 +28,14 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#embedded-engine-coffee</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#embedded-engine-javascript</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#slim-block-comment</string>
 		</dict>
 		<dict>
@@ -127,6 +135,28 @@
 				</dict>
 			</array>
 		</dict>
+		<key>embedded-engine-coffee</key>
+		<dict>
+			<key>begin</key>
+			<string>^(\s*)(coffee:)\s.*$</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.slim</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>^(?!(\1(	|  ))|\s*$)</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.coffee</string>
+				</dict>
+			</array>
+		</dict>
 		<key>embedded-engine-css</key>
 		<dict>
 			<key>begin</key>
@@ -146,6 +176,28 @@
 				<dict>
 					<key>include</key>
 					<string>source.css</string>
+				</dict>
+			</array>
+		</dict>
+		<key>embedded-engine-javascript</key>
+		<dict>
+			<key>begin</key>
+			<string>^(\s*)(javascript:)\s.*$</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.slim</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>^(?!(\1(	|  ))|\s*$)</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.js</string>
 				</dict>
 			</array>
 		</dict>
@@ -227,7 +279,7 @@
 			<key>begin</key>
 			<string>==?'? </string>
 			<key>end</key>
-			<string>(?&lt;=do\n)|(?&lt;!\\)\n</string>
+			<string>(?&lt;=do\n)|(?&lt;!\\|,)\n</string>
 			<key>name</key>
 			<string>source.ruby.rails.embedded.slim</string>
 			<key>patterns</key>
