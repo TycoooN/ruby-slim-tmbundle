@@ -441,7 +441,7 @@
 		<key>tag-param-name</key>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;=[\s\[\{\(])\w[\w-]*(?==)</string>
+			<string>(?&lt;=[\s\[\{\(])\w[\w:-]*(?==)</string>
 			<key>name</key>
 			<string>entity.name.param.slim</string>
 		</dict>

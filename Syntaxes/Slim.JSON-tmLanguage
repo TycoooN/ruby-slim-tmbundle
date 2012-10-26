@@ -131,7 +131,7 @@
 
     "tag-param-name": {
       "name": "entity.name.param.slim",
-      "match": "(?<=[\\s\\[\\{\\(])\\w[\\w-]*(?==)"
+      "match": "(?<=[\\s\\[\\{\\(])\\w[\\w:-]*(?==)"
     },
 
     "tag-param-value": {
